@@ -10,17 +10,43 @@ namespace MeuBanco
     public class Pessoa
     {
         // atributos
-        public string nome;
-        public string telefone;
-        public string endereco;
+        private string nome;
+        public string Telefone { get; set; }
+        public string Endereco { get; set; }
+        //implementação manual de get set
+        public string Nome
+        {
+            get
+            {
+                return this.nome;
+            }
+            set
+            {
+                this.nome = value;
+            }
+
+        }
+
+        /* Controle de acesso à variável
+        public string Nome()
+        {
+            return nome;
+        }
+
+        public void Nome(string nome)
+        {
+            this.nome = nome;
+        }
+
+        */
 
         // Declarando um método sem retorno
         public void imprimir()
         {
             Console.WriteLine(
-                $"Nome: {nome}, " +
-                $"Telefone: {telefone}, " +
-                $"Endereço: {endereco}.");
+                $"Nome: {Nome}, " +
+                $"Telefone: {Telefone}, " +
+                $"Endereço: {Endereco}.");
         }
     }
 }

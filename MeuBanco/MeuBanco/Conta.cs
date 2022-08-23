@@ -10,7 +10,7 @@ namespace MeuBanco
     {
         public int numero;
         public int agencia;
-        public double saldo;
+        private double saldo;
         // declarar uma variável do tipo Pessoa
         public Pessoa titular;
 
@@ -43,6 +43,20 @@ namespace MeuBanco
             {
                 Console.WriteLine("Saldo insuficiente.");
                 return false;
+            }
+            
+        }
+
+        public void Transferir(double valor, Conta destino)
+        {
+            /* (saldo >= valor)
+            {
+                saldo -= valor;
+                destino.saldo += valor;
+            } */
+            if (this.Sacar(valor))
+            {
+                destino.Depositar(valor);
             }
             
         }
