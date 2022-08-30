@@ -8,18 +8,33 @@ namespace MeuBanco
 {
     public class Conta
     {
-        public int numero;
-        public int agencia;
+        public static int Quantidade { get; set; }
+        public int Numero { get; set; }
+        public int Agencia { get; set; }
         private double saldo;
         // declarar uma variável do tipo Pessoa
-        public Pessoa titular;
+        public Pessoa Titular { get; set; }
+
+        public Conta()
+        {
+            this.saldo = 0;
+            Quantidade++;
+        }
+        public Conta(int numero, int agencia, Pessoa titular)
+        {
+            this.Numero = numero;
+            this.Agencia = agencia;
+            this.saldo = 0;
+            this.Titular = titular;
+            Quantidade++;
+        }
 
         public void imprimir()
         {
-            titular.imprimir();
+            //Titular.imprimir();
             Console.WriteLine(
-                $"Número: {numero}, " +
-                $"Agência: {agencia}, " +
+                $"Número: {Numero}, " +
+                $"Agência: {Agencia}, " +
                 $"Saldo: {saldo}.");
         }
 
@@ -44,7 +59,7 @@ namespace MeuBanco
                 Console.WriteLine("Saldo insuficiente.");
                 return false;
             }
-            
+
         }
 
         public void Transferir(double valor, Conta destino)
@@ -58,7 +73,7 @@ namespace MeuBanco
             {
                 destino.Depositar(valor);
             }
-            
+
         }
     }
 }

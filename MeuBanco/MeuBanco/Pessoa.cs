@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MeuBanco
 {
-    /* declarando uma classe pública */
-    public class Pessoa
+    /* declarando uma classe pública e abstrata */
+    public abstract class Pessoa
     {
         // atributos
         private string nome;
@@ -25,6 +25,17 @@ namespace MeuBanco
                 this.nome = value;
             }
 
+        }
+        public int Idade { get; set; }
+
+        public Pessoa() { }
+
+        public Pessoa(string nome, string telefone, string endereco)
+        {
+            this.Nome = nome;
+            this.Telefone = telefone;
+            this.Endereco = endereco;
+            Idade = 0;
         }
 
         /* Controle de acesso à variável
@@ -46,7 +57,8 @@ namespace MeuBanco
             Console.WriteLine(
                 $"Nome: {Nome}, " +
                 $"Telefone: {Telefone}, " +
-                $"Endereço: {Endereco}.");
+                $"Endereço: {Endereco}, " +
+                $"Idade: {Idade}.");
         }
     }
 }
