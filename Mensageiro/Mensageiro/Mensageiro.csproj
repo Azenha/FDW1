@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contato.cs" />
+    <Compile Include="Mensageiro.cs" />
     <Compile Include="Mensagem.cs" />
     <Compile Include="MsgAudio.cs" />
     <Compile Include="MsgFoto.cs" />

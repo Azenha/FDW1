@@ -10,9 +10,16 @@ namespace Mensageiro
     {
         public int Duracao { get; set; }
 
-        public MsgAudio(int duracao)
+        public MsgAudio(Contato destinatario, string horaEnvio, string conteudo, int duracao)
         {
+            this.Destinatario = destinatario;
+            this.HoraEnvio = horaEnvio;
+            this.Conteudo = conteudo;
             this.Duracao = duracao;
+        }
+        public override string ToString()
+        {
+            return "Nova mensagem não lida \nDestinatário: " + Destinatario.Nome.ToString() + "\nEnvio: " + HoraEnvio.ToString() + "\nConteúdo: " + Conteudo.ToString() + "\nDuração em segundos: " + Duracao.ToString();
         }
     }
 }

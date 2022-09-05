@@ -10,9 +10,16 @@ namespace Mensageiro
     {
         public int NumChar { get; set; }
 
-        public MsgTexto(int numChar)
+        public MsgTexto(Contato destinatario, string horaEnvio, string conteudo, int numChar)
         {
+            this.Destinatario = destinatario;
+            this.HoraEnvio = horaEnvio;
+            this.Conteudo = conteudo;
             this.NumChar = numChar;
+        }
+        public override string ToString()
+        {
+            return "Nova mensagem não lida \nDestinatário: " + Destinatario.Nome.ToString() + "\nEnvio: " + HoraEnvio.ToString() + "\nConteúdo: " + Conteudo.ToString() + "\nNúmero de caracteres: " + NumChar.ToString();
         }
     }
 }

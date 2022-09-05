@@ -10,9 +10,17 @@ namespace Mensageiro
     {
         public int Tamanho { get; set; }
 
-        public MsgFoto (int tamanho)
+        public MsgFoto(Contato destinatario, string horaEnvio, string conteudo, int tamanho)
         {
+            this.Destinatario = destinatario;
+            this.HoraEnvio = horaEnvio;
+            this.Conteudo = conteudo;
             this.Tamanho = tamanho;
         }
+        public override string ToString()
+        {
+            return "Nova mensagem não lida \nDestinatário: " + Destinatario.Nome.ToString() + "\nEnvio: " + HoraEnvio.ToString() + "\nConteúdo: " + Conteudo.ToString() + "\nTamanho da foto em MB: " + Tamanho.ToString();
+        }
+
     }
 }

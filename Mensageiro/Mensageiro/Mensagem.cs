@@ -19,6 +19,10 @@ namespace Mensageiro
             this.HoraEnvio = horaEnvio;
             this.Conteudo = conteudo;
         }
+        public override string ToString()
+        {
+            return base.ToString() + "Destinatário: " + Destinatario.ToString() + "Envio: " + HoraEnvio.ToString() + "Conteúdo: " + Conteudo.ToString();
+        }
     }
 
 }
