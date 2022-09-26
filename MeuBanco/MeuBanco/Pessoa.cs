@@ -10,10 +10,10 @@ namespace MeuBanco
     public abstract class Pessoa
     {
         // atributos
-        private string nome;
+        private string Nome { get; set; }
         public string Telefone { get; set; }
         public string Endereco { get; set; }
-        //implementação manual de get set
+        /*implementação manual de get set
         public string Nome
         {
             get
@@ -25,7 +25,7 @@ namespace MeuBanco
                 this.nome = value;
             }
 
-        }
+        }*/
         public int Idade { get; set; }
 
         public Pessoa() { }
