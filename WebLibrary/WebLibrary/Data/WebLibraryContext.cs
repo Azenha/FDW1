@@ -14,6 +14,10 @@ namespace WebLibrary.Data
         {
         }
 
-        public DbSet<WebLibrary.Models.Product> Product { get; set; } = default!;
+        public DbSet<Product> Product { get; set; } = default!;
+        public DbSet<Department> Department { get; set; } = default!;
+        public DbSet<Seller> Seller { get; set; } = default!;
+        public DbSet<SalesRecord> SalesRecord { get; set; } = default!;
+
     }
 }
