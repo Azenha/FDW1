@@ -19,5 +19,10 @@ namespace WebLibrary.Controllers
             //List<Seller> list = new List<Seller>();
             return View(list);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
