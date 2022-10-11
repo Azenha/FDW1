@@ -15,14 +15,13 @@
         {
         }
 
-        public Seller(int id, string name, string email, DateTime birthDate, double salary, int departmentId)
+        public Seller(int id, string name, string email, DateTime birthDate, double salary)
         {
             Id = id;
             Name = name;
             Email = email;
             BirthDate = birthDate;
             Salary = salary;
-            DepartmentId = departmentId;
         }
 
         public void AddSales(SalesRecord salesRecord)

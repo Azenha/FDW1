@@ -24,5 +24,13 @@ namespace WebLibrary.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Create(Seller seller)
+        {
+            seller.Department = _context.Department.First();
+            _context.Seller.Add(seller);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
