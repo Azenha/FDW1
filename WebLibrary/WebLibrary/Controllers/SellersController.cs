@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebLibrary.Data;
 using WebLibrary.Models;
+using WebLibrary.Models.ViewModels;
 
 namespace WebLibrary.Controllers
 {
@@ -22,15 +23,31 @@ namespace WebLibrary.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var viewModel = new SellerFormViewModel();
+            viewModel.Departments = _context.Department.ToList();
+            return View(viewModel);
         }
         [HttpPost]
         public IActionResult Create(Seller seller)
         {
-            seller.Department = _context.Department.First();
+            //seller.Department = _context.Department.First();
             _context.Seller.Add(seller);
             _context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Details(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var seller = _context.Seller.FirstOrDefault(s => s.Id == id);
+            if (seller == null)
+            {
+                return NotFound(nameof(seller));
+            }
+            return View(seller);
         }
     }
 }
