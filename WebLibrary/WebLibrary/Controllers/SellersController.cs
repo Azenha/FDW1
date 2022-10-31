@@ -18,7 +18,7 @@ namespace WebLibrary.Controllers
 
         public IActionResult Index()
         {
-            //var list = _context.Seller.Include(d => d.Department).ToList();
+            var list = _context.Seller.Include(d => d.Department).ToList();
             //é igual à
             //List<Seller> list = new List<Seller>();
             //var list = _context.Seller.Include(s => s.Department).Where(s => s.Name.StartsWith("A")).ToList();
@@ -27,7 +27,14 @@ namespace WebLibrary.Controllers
             //var list = _context.Seller.Include(s => s.Department).Where(s => s.Name == "Azenha").ToList();
             //var list = _context.Seller.Include(s => s.Department).Where(s => s.Salary >2000).ToList();
             //var list = _context.Seller.Include(s => s.Department).Where(s => s.Name.Contains("Vendedor")).OrderBy(s => s.Name).ThenBy(s => s.Salary).ToList();
-            var list = _context.Seller.Include(s => s.Department).Where(s => s.BirthDate > new DateTime(1998, 1, 1)).OrderBy(s => s.Name).ThenBy(s => s.Salary).ToList();
+            //var list = _context.Seller.Include(s => s.Department).Where(s => s.BirthDate > new DateTime(1998, 1, 1)).OrderBy(s => s.Name).ThenBy(s => s.Salary).ToList();
+            ViewData["FolhaPagamentoTotal"] = list.Sum(s => s.Salary);
+            ViewData["FolhaPagamentoMedia"] = list.Average(s => s.Salary);
+            ViewData["QuantidadeVendedores"] = list.Count();
+            ViewData["QuantidadeGenZ"] = list.Count(s => s.BirthDate > new DateTime(1997, 01, 01));
+            ViewData["MaiorSalario"] = list.Max(s => s.Salary);
+            ViewData["Vendedor1111"] = list.Where(s => s.Salary == 1111).Select(s => s.Name).FirstOrDefault();
+            ViewData["MenorSalario"] = list.Min(s => s.Salary);
             return View(list);
         }
 
