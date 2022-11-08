@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using NpcManager.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<NpcManagerContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("NpcManagerContext") ?? throw new InvalidOperationException("Connection string 'NpcManagerContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
