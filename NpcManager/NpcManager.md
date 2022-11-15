@@ -1,4 +1,10 @@
-https://learn.microsoft.com/pt-br/ef/core/modeling/relationships
+https://learn.microsoft.com/en-us/ef/ef6/modeling/code-first/data-annotations?redirectedfrom=MSDN#Relationships
+
+https://stackoverflow-com.translate.goog/questions/19864974/code-first-entity-framework-multiple-foreign-keys-for-the-same-table?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=pt-BR&_x_tr_pto=wapp
+
+https://stackoverflow-com.translate.goog/questions/5559043/entity-framework-code-first-two-foreign-keys-from-same-table?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=pt-BR&_x_tr_pto=wapp#5559300
+
+https://entityframeworkcore.com/knowledge-base/22281078/two-foreign-keys-with-same-navigation-property-
 
 # NpcManager
 
