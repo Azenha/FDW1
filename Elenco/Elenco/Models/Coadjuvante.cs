@@ -8,7 +8,7 @@ namespace Elenco.Models
         public string Nome { get; set; }
         public string? Descricao { get; set; }
         public string? Retrato { get; set; }
-        public int? Origem { get; set; }
+        public Origem? Origem { get; set; }
         [InverseProperty("ExperienciaAlfa")]
         public virtual Experiencia? ExperienciaAlfa { get; set; }
         [InverseProperty("ExperienciaBeta")]
@@ -22,7 +22,7 @@ namespace Elenco.Models
 
         public Coadjuvante() { }
 
-        public Coadjuvante(int id, string nome, string? descricao, string? retrato, int? origem, Experiencia? experienciaAlfa, Experiencia? experienciaBeta, Autenticidade? autenticidadeAlfa, Autenticidade? autenticidadeBeta, Autenticidade? autenticidadeGama)
+        public Coadjuvante(int id, string nome, string? descricao, string? retrato, Origem? origem, Experiencia? experienciaAlfa, Experiencia? experienciaBeta, Autenticidade? autenticidadeAlfa, Autenticidade? autenticidadeBeta, Autenticidade? autenticidadeGama)
         {
             Id = id;
             Nome = nome;
