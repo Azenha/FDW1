@@ -5,8 +5,8 @@
         public int Id { get; set; }
         public string Nome { get; set; }
         public string? Descricao { get; set; }
-        public virtual ICollection<Elenco> ExperienciaAlfa { get; set; }
-        public virtual ICollection<Elenco> ExperienciaBeta { get; set; }
+        public virtual ICollection<Coadjuvante> ExperienciaAlfa { get; set; }
+        public virtual ICollection<Coadjuvante> ExperienciaBeta { get; set; }
 
         public Experiencia() { }
 

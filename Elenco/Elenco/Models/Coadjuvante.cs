@@ -2,7 +2,7 @@
 
 namespace Elenco.Models
 {
-    public class Elenco
+    public class Coadjuvante
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -20,9 +20,9 @@ namespace Elenco.Models
         [InverseProperty("AutenticidadeGama")]
         public virtual Autenticidade? AutenticidadeGama { get; set; }
 
-        public Elenco() { }
+        public Coadjuvante() { }
 
-        public Elenco(int id, string nome, string? descricao, string? retrato, int? origem, Experiencia? experienciaAlfa, Experiencia? experienciaBeta, Autenticidade? autenticidadeAlfa, Autenticidade? autenticidadeBeta, Autenticidade? autenticidadeGama)
+        public Coadjuvante(int id, string nome, string? descricao, string? retrato, int? origem, Experiencia? experienciaAlfa, Experiencia? experienciaBeta, Autenticidade? autenticidadeAlfa, Autenticidade? autenticidadeBeta, Autenticidade? autenticidadeGama)
         {
             Id = id;
             Nome = nome;
