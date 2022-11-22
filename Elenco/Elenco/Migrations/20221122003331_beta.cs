@@ -4,7 +4,7 @@
 
 namespace Elenco.Migrations
 {
-    public partial class alfa : Migration
+    public partial class beta : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,7 +51,7 @@ namespace Elenco.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Elenco",
+                name: "Coadjuvante",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -68,74 +68,74 @@ namespace Elenco.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Elenco", x => x.Id);
+                    table.PrimaryKey("PK_Coadjuvante", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Elenco_Autenticidade_AutenticidadeAlfaId",
+                        name: "FK_Coadjuvante_Autenticidade_AutenticidadeAlfaId",
                         column: x => x.AutenticidadeAlfaId,
                         principalTable: "Autenticidade",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Elenco_Autenticidade_AutenticidadeBetaId",
+                        name: "FK_Coadjuvante_Autenticidade_AutenticidadeBetaId",
                         column: x => x.AutenticidadeBetaId,
                         principalTable: "Autenticidade",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Elenco_Autenticidade_AutenticidadeGamaId",
+                        name: "FK_Coadjuvante_Autenticidade_AutenticidadeGamaId",
                         column: x => x.AutenticidadeGamaId,
                         principalTable: "Autenticidade",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Elenco_Experiencia_ExperienciaAlfaId",
+                        name: "FK_Coadjuvante_Experiencia_ExperienciaAlfaId",
                         column: x => x.ExperienciaAlfaId,
                         principalTable: "Experiencia",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Elenco_Experiencia_ExperienciaBetaId",
+                        name: "FK_Coadjuvante_Experiencia_ExperienciaBetaId",
                         column: x => x.ExperienciaBetaId,
                         principalTable: "Experiencia",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Elenco_Origem_OrigemId",
+                        name: "FK_Coadjuvante_Origem_OrigemId",
                         column: x => x.OrigemId,
                         principalTable: "Origem",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Elenco_AutenticidadeAlfaId",
-                table: "Elenco",
+                name: "IX_Coadjuvante_AutenticidadeAlfaId",
+                table: "Coadjuvante",
                 column: "AutenticidadeAlfaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Elenco_AutenticidadeBetaId",
-                table: "Elenco",
+                name: "IX_Coadjuvante_AutenticidadeBetaId",
+                table: "Coadjuvante",
                 column: "AutenticidadeBetaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Elenco_AutenticidadeGamaId",
-                table: "Elenco",
+                name: "IX_Coadjuvante_AutenticidadeGamaId",
+                table: "Coadjuvante",
                 column: "AutenticidadeGamaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Elenco_ExperienciaAlfaId",
-                table: "Elenco",
+                name: "IX_Coadjuvante_ExperienciaAlfaId",
+                table: "Coadjuvante",
                 column: "ExperienciaAlfaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Elenco_ExperienciaBetaId",
-                table: "Elenco",
+                name: "IX_Coadjuvante_ExperienciaBetaId",
+                table: "Coadjuvante",
                 column: "ExperienciaBetaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Elenco_OrigemId",
-                table: "Elenco",
+                name: "IX_Coadjuvante_OrigemId",
+                table: "Coadjuvante",
                 column: "OrigemId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Elenco");
+                name: "Coadjuvante");
 
             migrationBuilder.DropTable(
                 name: "Autenticidade");

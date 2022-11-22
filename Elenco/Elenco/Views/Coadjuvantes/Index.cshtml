@@ -21,6 +21,24 @@
             <th>
                 @Html.DisplayNameFor(model => model.Retrato)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Origem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExperienciaAlfa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExperienciaBeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutenticidadeAlfa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutenticidadeBeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutenticidadeGama)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -35,6 +53,24 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Retrato)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origem.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExperienciaAlfa.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExperienciaBeta.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutenticidadeAlfa.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutenticidadeBeta.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutenticidadeGama.Nome)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

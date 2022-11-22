@@ -92,7 +92,7 @@ namespace Elenco.Migrations
 
                     b.HasIndex("OrigemId");
 
-                    b.ToTable("Elenco");
+                    b.ToTable("Coadjuvante");
                 });
 
             modelBuilder.Entity("Elenco.Models.Experiencia", b =>

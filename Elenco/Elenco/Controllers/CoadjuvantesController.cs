@@ -22,18 +22,24 @@ namespace Elenco.Controllers
         // GET: Coadjuvantes
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Elenco.ToListAsync());
+            var origem = _context.Coadjuvante.Include(o => o.Origem).ToList();
+            var ExpA = _context.Coadjuvante.Include(o => o.ExperienciaAlfa).ToList();
+            var ExpB = _context.Coadjuvante.Include(o => o.ExperienciaBeta).ToList();
+            var AutA = _context.Coadjuvante.Include(o => o.AutenticidadeAlfa).ToList();
+            var AutB = _context.Coadjuvante.Include(o => o.AutenticidadeBeta).ToList();
+            var AutC = _context.Coadjuvante.Include(o => o.AutenticidadeGama).ToList();
+            return View(await _context.Coadjuvante.ToListAsync());
         }
 
         // GET: Coadjuvantes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Elenco == null)
+            if (id == null || _context.Coadjuvante == null)
             {
                 return NotFound();
             }
 
-            var coadjuvante = await _context.Elenco
+            var coadjuvante = await _context.Coadjuvante
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (coadjuvante == null)
             {
@@ -68,12 +74,12 @@ namespace Elenco.Controllers
         // GET: Coadjuvantes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Elenco == null)
+            if (id == null || _context.Coadjuvante == null)
             {
                 return NotFound();
             }
 
-            var coadjuvante = await _context.Elenco.FindAsync(id);
+            var coadjuvante = await _context.Coadjuvante.FindAsync(id);
             if (coadjuvante == null)
             {
                 return NotFound();
@@ -119,12 +125,12 @@ namespace Elenco.Controllers
         // GET: Coadjuvantes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Elenco == null)
+            if (id == null || _context.Coadjuvante == null)
             {
                 return NotFound();
             }
 
-            var coadjuvante = await _context.Elenco
+            var coadjuvante = await _context.Coadjuvante
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (coadjuvante == null)
             {
@@ -139,14 +145,14 @@ namespace Elenco.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Elenco == null)
+            if (_context.Coadjuvante == null)
             {
                 return Problem("Entity set 'ElencoContext.Elenco'  is null.");
             }
-            var coadjuvante = await _context.Elenco.FindAsync(id);
+            var coadjuvante = await _context.Coadjuvante.FindAsync(id);
             if (coadjuvante != null)
             {
-                _context.Elenco.Remove(coadjuvante);
+                _context.Coadjuvante.Remove(coadjuvante);
             }
             
             await _context.SaveChangesAsync();
@@ -155,7 +161,7 @@ namespace Elenco.Controllers
 
         private bool CoadjuvanteExists(int id)
         {
-          return _context.Elenco.Any(e => e.Id == id);
+          return _context.Coadjuvante.Any(e => e.Id == id);
         }
     }
 }

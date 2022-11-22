@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Elenco.Migrations
 {
     [DbContext(typeof(ElencoContext))]
-    [Migration("20221121231731_alfa")]
-    partial class alfa
+    [Migration("20221122003331_beta")]
+    partial class beta
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -94,7 +94,7 @@ namespace Elenco.Migrations
 
                     b.HasIndex("OrigemId");
 
-                    b.ToTable("Elenco");
+                    b.ToTable("Coadjuvante");
                 });
 
             modelBuilder.Entity("Elenco.Models.Experiencia", b =>

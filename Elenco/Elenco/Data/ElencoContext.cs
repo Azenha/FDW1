@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +16,7 @@ namespace Elenco.Data
 
         public DbSet<Elenco.Models.Autenticidade> Autenticidade { get; set; } = default!;
 
-        public DbSet<Elenco.Models.Coadjuvante> Elenco { get; set; }
+        public DbSet<Elenco.Models.Coadjuvante> Coadjuvante { get; set; }
 
         public DbSet<Elenco.Models.Origem> Origem { get; set; }
 
