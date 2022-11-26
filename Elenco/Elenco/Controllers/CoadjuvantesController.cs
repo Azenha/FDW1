@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Elenco.Data;
 using Elenco.Models;
+using Elenco.Models.ViewModels;
+using NuGet.Protocol.Plugins;
 
 namespace Elenco.Controllers
 {
@@ -38,7 +40,12 @@ namespace Elenco.Controllers
             {
                 return NotFound();
             }
-
+            var origem = _context.Coadjuvante.Include(o => o.Origem).FirstOrDefault(c => c.Id == id);
+            var ExpA = _context.Coadjuvante.Include(o => o.ExperienciaAlfa).FirstOrDefault(c => c.Id == id);
+            var ExpB = _context.Coadjuvante.Include(o => o.ExperienciaBeta).FirstOrDefault(c => c.Id == id);
+            var AutA = _context.Coadjuvante.Include(o => o.AutenticidadeAlfa).FirstOrDefault(c => c.Id == id);
+            var AutB = _context.Coadjuvante.Include(o => o.AutenticidadeBeta).FirstOrDefault(c => c.Id == id);
+            var AutC = _context.Coadjuvante.Include(o => o.AutenticidadeGama).FirstOrDefault(c => c.Id == id);
             var coadjuvante = await _context.Coadjuvante
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (coadjuvante == null)
@@ -60,7 +67,7 @@ namespace Elenco.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,Retrato")] Coadjuvante coadjuvante)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,Retrato,Origem,ExperienciaAlfa,ExperienciaBeta,AutenticidadeAlfa,AutenticidadeBeta,AutenticidadeGama")] Coadjuvante coadjuvante)
         {
             if (ModelState.IsValid)
             {
@@ -78,13 +85,26 @@ namespace Elenco.Controllers
             {
                 return NotFound();
             }
-
-            var coadjuvante = await _context.Coadjuvante.FindAsync(id);
+            Coadjuvante coadjuvante = _context.Coadjuvante.Include(o => o.Origem).FirstOrDefault(s => s.Id == id);
+            var ExpA = _context.Coadjuvante.Include(s => s.ExperienciaAlfa).FirstOrDefault(s => s.Id == id);
+            var ExpB = _context.Coadjuvante.Include(s => s.ExperienciaBeta).FirstOrDefault(s => s.Id == id);
+            var AutA = _context.Coadjuvante.Include(s => s.AutenticidadeAlfa).FirstOrDefault(s => s.Id == id);
+            var AutB = _context.Coadjuvante.Include(s => s.AutenticidadeBeta).FirstOrDefault(s => s.Id == id);
+            var AutC = _context.Coadjuvante.Include(s => s.AutenticidadeGama).FirstOrDefault(s => s.Id == id);
+            //var coadjuvante = await _context.Coadjuvante.FindAsync(id);
             if (coadjuvante == null)
             {
                 return NotFound();
             }
-            return View(coadjuvante);
+            var viewModel = new CoadjuvanteFormViewModel();
+            viewModel.Coadjuvante = coadjuvante;
+            viewModel.Origems = _context.Origem.ToArray();
+            viewModel.ExperienciaAlfa = _context.Experiencia.ToArray();
+            viewModel.ExperienciaBeta = _context.Experiencia.ToArray();
+            viewModel.AutenticidadeAlfa = _context.Autenticidade.ToArray();
+            viewModel.AutenticidadeBeta = _context.Autenticidade.ToArray();
+            viewModel.AutenticidadeGama = _context.Autenticidade.ToArray();
+            return View(viewModel);
         }
 
         // POST: Coadjuvantes/Edit/5
@@ -92,7 +112,7 @@ namespace Elenco.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Descricao,Retrato")] Coadjuvante coadjuvante)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Descricao,Retrato,Origem,ExperienciaAlfa,ExperienciaBeta,AutenticidadeAlfa,AutenticidadeBeta,AutenticidadeGama")] Coadjuvante coadjuvante)
         {
             if (id != coadjuvante.Id)
             {
@@ -129,7 +149,12 @@ namespace Elenco.Controllers
             {
                 return NotFound();
             }
-
+            var origem = _context.Coadjuvante.Include(o => o.Origem).FirstOrDefault(c => c.Id == id);
+            var ExpA = _context.Coadjuvante.Include(o => o.ExperienciaAlfa).FirstOrDefault(c => c.Id == id);
+            var ExpB = _context.Coadjuvante.Include(o => o.ExperienciaBeta).FirstOrDefault(c => c.Id == id);
+            var AutA = _context.Coadjuvante.Include(o => o.AutenticidadeAlfa).FirstOrDefault(c => c.Id == id);
+            var AutB = _context.Coadjuvante.Include(o => o.AutenticidadeBeta).FirstOrDefault(c => c.Id == id);
+            var AutC = _context.Coadjuvante.Include(o => o.AutenticidadeGama).FirstOrDefault(c => c.Id == id);
             var coadjuvante = await _context.Coadjuvante
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (coadjuvante == null)

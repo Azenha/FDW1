@@ -1,4 +1,4 @@
-﻿@model Elenco.Models.Coadjuvante
+﻿@model Elenco.Models.ViewModels.CoadjuvanteFormViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,21 +12,51 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Coadjuvante.Id" />
             <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+                <label asp-for="Coadjuvante.Nome" class="control-label"></label>
+                <input asp-for="Coadjuvante.Nome" class="form-control" />
+                <span asp-validation-for="Coadjuvante.Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <textarea asp-for="Descricao" text-wrap:normal" type="text" class="form-control"></textarea>
-                <span asp-validation-for="Descricao" class="text-danger"></span>
+                <label asp-for="Coadjuvante.Descricao" class="control-label"></label>
+                <textarea asp-for="Coadjuvante.Descricao" text-wrap:normal" type="text" class="form-control"></textarea>
+                <span asp-validation-for="Coadjuvante.Descricao" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Retrato" class="control-label"></label>
-                <input asp-for="Retrato" class="form-control" />
-                <span asp-validation-for="Retrato" class="text-danger"></span>
+                <label asp-for="Coadjuvante.Retrato" class="control-label"></label>
+                <input asp-for="Coadjuvante.Retrato" class="form-control" />
+                <span asp-validation-for="Coadjuvante.Retrato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coadjuvante.Origem" class="control-label"></label>
+                <select asp-for="Coadjuvante.Origem" class="form-control" asp-items="@(new SelectList(Model.Origems, "Id", "Nome"))"></select>
+                <span asp-validation-for="Coadjuvante.Origem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coadjuvante.ExperienciaAlfa" class="control-label"></label>
+                <select asp-for="Coadjuvante.ExperienciaAlfa" class="form-control" asp-items="@(new SelectList(Model.ExperienciaAlfa, "Id", "Nome"))"></select>
+                <span asp-validation-for="Coadjuvante.ExperienciaAlfa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coadjuvante.ExperienciaBeta" class="control-label"></label>
+                <select asp-for="Coadjuvante.ExperienciaBeta" class="form-control" asp-items="@(new SelectList(Model.ExperienciaBeta, "Id", "Nome"))"></select>
+                <span asp-validation-for="Coadjuvante.ExperienciaBeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coadjuvante.AutenticidadeAlfa" class="control-label"></label>
+                <select asp-for="Coadjuvante.AutenticidadeAlfa" class="form-control" asp-items="@(new SelectList(Model.AutenticidadeAlfa, "Id", "Nome"))"></select>
+                <span asp-validation-for="Coadjuvante.AutenticidadeAlfa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coadjuvante.AutenticidadeBeta" class="control-label"></label>
+                <select asp-for="Coadjuvante.AutenticidadeBeta" class="form-control" asp-items="@(new SelectList(Model.AutenticidadeBeta, "Id", "Nome"))"></select>
+                <span asp-validation-for="Coadjuvante.AutenticidadeBeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Coadjuvante.AutenticidadeGama" class="control-label"></label>
+                <select asp-for="Coadjuvante.AutenticidadeGama" class="form-control" asp-items="@(new SelectList(Model.AutenticidadeGama, "Id", "Nome"))"></select>
+                <span asp-validation-for="Coadjuvante.AutenticidadeGama" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
