@@ -79,13 +79,21 @@ namespace Elenco.Controllers
         }
 
         // GET: Coadjuvantes/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, Origem? orig, Experiencia? expA, Experiencia? expB, Autenticidade? autA, Autenticidade? autB, Autenticidade? autC)
         {
             if (id == null || _context.Coadjuvante == null)
             {
                 return NotFound();
             }
-            Coadjuvante coadjuvante = _context.Coadjuvante.Include(o => o.Origem).FirstOrDefault(s => s.Id == id);
+            var coadjuvante = await _context.Coadjuvante.FindAsync(id);
+            //Coadjuvante coadjuvante = await _context.Coadjuvante.Include(Origem).Include.(ExperienciaAlfa);
+                                                          //.Include.(ExperienciaBeta)
+                                                          //.Include.(AutenticidadeAlfa)
+                                                          //.Include.(AutenticidadeBeta)
+                                                          //.Include.(AutenticidadeGama)
+                                                          /*.FirstOrDefault(s => s.Id == id);*/
+            
+            var Orig = _context.Coadjuvante.Include(s => s.Origem).FirstOrDefault(s => s.Id == id);
             var ExpA = _context.Coadjuvante.Include(s => s.ExperienciaAlfa).FirstOrDefault(s => s.Id == id);
             var ExpB = _context.Coadjuvante.Include(s => s.ExperienciaBeta).FirstOrDefault(s => s.Id == id);
             var AutA = _context.Coadjuvante.Include(s => s.AutenticidadeAlfa).FirstOrDefault(s => s.Id == id);
@@ -98,12 +106,12 @@ namespace Elenco.Controllers
             }
             var viewModel = new CoadjuvanteFormViewModel();
             viewModel.Coadjuvante = coadjuvante;
-            viewModel.Origems = _context.Origem.ToArray();
-            viewModel.ExperienciaAlfa = _context.Experiencia.ToArray();
-            viewModel.ExperienciaBeta = _context.Experiencia.ToArray();
-            viewModel.AutenticidadeAlfa = _context.Autenticidade.ToArray();
-            viewModel.AutenticidadeBeta = _context.Autenticidade.ToArray();
-            viewModel.AutenticidadeGama = _context.Autenticidade.ToArray();
+            viewModel.Coadjuvante.Origem = orig.ToArray();
+            viewModel.Coadjuvante.ExperienciaAlfa = expA;
+            viewModel.Coadjuvante.ExperienciaBeta = expB;
+            viewModel.Coadjuvante.AutenticidadeAlfa = autA;
+            viewModel.Coadjuvante.AutenticidadeBeta = autB;
+            viewModel.Coadjuvante.AutenticidadeGama = autC;
             return View(viewModel);
         }
 
