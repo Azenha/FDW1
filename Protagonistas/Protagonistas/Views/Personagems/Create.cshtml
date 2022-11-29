@@ -1,0 +1,55 @@
+﻿@model Protagonistas.Models.ViewModels.PersonagemFormViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Personagem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Personagem.Nome" class="control-label"></label>
+                <input asp-for="Personagem.Nome" class="form-control" />
+                <span asp-validation-for="Personagem.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personagem.Descricao" class="control-label"></label>
+                <input asp-for="Personagem.Descricao" class="form-control" />
+                <span asp-validation-for="Personagem.Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personagem.Retrato" class="control-label"></label>
+                <input asp-for="Personagem.Retrato" class="form-control" />
+                <span asp-validation-for="Personagem.Retrato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personagem.AncestralidadeId" class="control-label"></label>
+                <select asp-for="Personagem.AncestralidadeId" class="form-control" asp-items="@(new SelectList(Model.Ancestralidades, "Id", "Nome"))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personagem.BiografiaId" class="control-label"></label>
+                <select asp-for="Personagem.BiografiaId" class="form-control" asp-items="@(new SelectList(Model.Biografias, "Id", "Nome"))"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personagem.CaminhoId" class="control-label"></label>
+                <select asp-for="Personagem.CaminhoId" class="form-control" asp-items="@(new SelectList(Model.Caminhos, "Id", "Nome"))"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
